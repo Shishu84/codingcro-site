@@ -1,0 +1,598 @@
+
+
+
+/* --- 1. DESIGN SYSTEM (Variables) --- */
+:root {
+    /* Google-Inspired Palette */
+    --color-blue: #4285F4;
+    --color-red: #EA4335;
+    --color-yellow: #FBBC05;
+    --color-green: #34A853;
+    
+    /* Neutral Tones (Light Mode Philosophy) */
+    --bg-body: #FFFFFF;
+    --bg-light: #F8F9FA; /* Very light grey for contrast sections */
+    --text-main: #202124; /* Soft black, easier on eyes */
+    --text-muted: #5F6368;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif; /* Geometric, modern */
+    --font-body: 'Open Sans', sans-serif; /* Clean, readable */
+    
+    /* Spacing & Layout */
+    --container-width: 1100px;
+    --transition: all 0.3s ease;
+}
+
+/* --- 2. GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 3. NAVBAR --- */
+.navbar {
+    background: var(--bg-body);
+    padding: 1rem 0;
+    position: sticky; /* Keeps nav visible when scrolling */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+
+    .logo-img {
+    height: 40px; /* Keeps the logo neat and small */
+    width: auto;   /* Maintains the aspect ratio */
+    margin-right: 10px; /* Adds space between the icon and the text */
+}
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.highlight-blue { color: var(--color-blue); }
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--color-blue);
+}
+
+/* --- 4. BUTTONS --- */
+.btn-primary {
+    background-color: var(--color-blue);
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: #3367d6; /* Slightly darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-blue);
+    padding: 10px 24px;
+    border: 1px solid var(--color-blue);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(66, 133, 244, 0.05);
+}
+
+/* --- 5. HERO SECTION --- */
+.hero {
+    height: 80vh; /* Takes up 80% of the screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-body);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* Creates the multi-color text effect for "Complexity" */
+.highlight-multi {
+    background: linear-gradient(90deg, var(--color-blue), var(--color-red), var(--color-yellow), var(--color-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtext {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* --- 6. FEATURES SECTION (The Cards) --- */
+.features {
+    padding: 100px 0;
+    background-color: var(--bg-light); /* Light grey distinctive of Google styling */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #eee;
+    transition: var(--transition);
+    border-top-width: 4px; /* The color strip on top */
+    border-top-style: solid;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Card Specific Colors */
+.card-blue { border-top-color: var(--color-blue); }
+.card-yellow { border-top-color: var(--color-yellow); }
+.card-green { border-top-color: var(--color-green); }
+
+.icon-box {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    padding: 60px 0 20px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-links a {
+    margin-left: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+}
+/* --- CODE SNIPPET SECTION --- */
+
+/* 1. Layout Adjustments for Split Hero */
+.hero {
+    height: auto; /* Allow it to grow */
+    min-height: 90vh;
+    padding-top: 40px; /* Space for navbar */
+}
+
+.hero-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left; /* Align text to left now */
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-group {
+    justify-content: flex-start; /* Align buttons left */
+}
+
+/* 2. The Code Window Container */
+.code-window {
+    background-color: #1e1e1e; /* VS Code Dark Grey */
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Deep shadow for pop */
+    overflow: hidden;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    border: 1px solid #333;
+}
+
+/* 3. Window Header (Mac Style) */
+.window-header {
+    background-color: #252526;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red { background-color: #FF5F56; }
+.dot-yellow { background-color: #FFBD2E; }
+.dot-green { background-color: #27C93F; }
+
+.filename {
+    color: #999;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+}
+
+/* 4. The Code Text */
+.code-body {
+    padding: 25px;
+    color: #d4d4d4;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 5. Syntax Highlighting (Brand Colors) */
+.c-purple { color: #c678dd; } /* Keywords like const, return */
+.c-blue { color: var(--color-blue); } /* Variables */
+.c-green { color: var(--color-green); } /* Strings */
+.c-yellow { color: var(--color-yellow); } /* Functions */
+.c-orange { color: #d19a66; } /* Booleans */
+.c-attr { color: #e06c75; } /* Object keys */
+.c-grey { color: #6a9955; font-style: italic; } /* Comments */
+
+/* Mobile Fix: Stack them on small screens */
+@media (max-width: 900px) {
+    .hero-split {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-text {
+        margin-bottom: 40px;
+    }
+    
+    .cta-group {
+        justify-content: center;
+    }
+}
+/* --- VIDEO SECTION --- */
+.videos-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main video is twice as wide as the list */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Makes the video responsive (always 16:9 ratio) */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-card h4 {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Mobile Fix for Videos */
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* Stack them on top of each other */
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* We will add a mobile menu later */
+    .cta-group { flex-direction: column; }
+}
+/* --- RESOURCES SECTION --- */
+.resources-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.resource-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.resource-item:hover {
+    border-color: var(--color-blue);
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.res-icon {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    background: var(--bg-light);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.res-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.res-info span {
+    font-size: 0.85rem;
+    color: var(--color-blue);
+    font-weight: 600;
+}
+
+.res-arrow {
+    margin-left: auto; /* Pushes arrow to the far right */
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-details {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
+.contact-form {
+    background: white;
+    padding: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--bg-light);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-blue);
+    background: white;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- MOBILE MENU & HAMBURGER --- */
+
+/* 1. The Hamburger Icon Styles */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-main);
+    border-radius: 2px;
+}
+
+/* 2. Mobile Logic */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show on mobile */
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Middle bar disappears */
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Top bar rotates */
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Bottom bar rotates */
+    }
+
+    /* The Mobile Menu List */
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Hidden off-screen to the left */
+        top: 70px; /* Below the navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    /* When JavaScript adds the 'active' class, slide it in */
+    .nav-links.active {
+        left: 0; 
+    }
+
+    .nav-links li {
+        margin: 16px 0;
+    }
+}

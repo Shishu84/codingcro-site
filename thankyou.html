@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent | Coding Cro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Simple centered layout just for this page */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+        .success-card {
+            background: rgba(243, 238, 243, 0.565);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(9, 0, 0, 0.05);
+            max-width: 500px;
+            width: 90%;
+            border-top: 5px solid var(--color-green); /* Green for Success */
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            fill: var(--color-green);
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/>
+        </svg>
+
+        <h1>Message Received!</h1>
+        <p>Thanks for reaching out. I'll check the code—and your message—and get back to you shortly.</p>
+
+        <div class="cta-group" style="justify-content: center;">
+            <a href="index.html" class="btn-primary">Back to Home</a>
+            <a href="https://www.youtube.com/@CodingCro" target="_blank" class="btn-secondary">Watch Tutorials</a>
+        </div>
+    </div>
+
+</body>
+</html>
